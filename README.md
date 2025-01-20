@@ -20,7 +20,16 @@ Q1 - Upload the previous image to IPFS.
 
 CID : QmeJaufp9seXCpHMFwxX53P3oRQW8Ny1DduCXAxebEwxv7
 
+This CID uniquely represents the file's content and allows it to be retrieved from any IPFS node.
+
 Q2 - Now upload partition1 to IPFS. What do you observe compared to the torrent part?
 
+- Unlike a single file, the folder's CID includes metadata about its structure and all its contents.
+- Like torrents, if the content or folder structure changes, the CID will change.
+- However, IPFS does not require .torrent files or trackers; it uses the CID directly for content addressing and retrieval.
+- 
 Q3 - Copy the partition1 folder and then generate the associated torrent. What do you observe?
+- If the folder's structure and content are identical, the CID for partition1_copy will be the same as the CID for partition1.
+- IPFS uses Content Addressing, ensuring that identical data always results in the same CID.
+
 
