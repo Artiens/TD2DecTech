@@ -1,0 +1,23 @@
+name: Deploy on Pinata
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Runs the job on a GitHub-hosted Ubuntu instance
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Checkout the repository code
+
+      - name: Deploy to Pinata
+        uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4  # Use the Pinata deploy action
+        with:
+          pin-name: 'project name'  # Pinata name for the project
+          path: './src'  # Path to the folder to be pinned (in this case, your 'src' folder)
+          pinata-api-key: ${{ secrets.PINATA_API_KEY }}  # Pinata API Key from GitHub Secrets
+          pinata-secret-api-key: ${{ secrets.PINATA_SECRET_API_KEY }}  # Pinata Secret API Key from GitHub Secrets
+          verbose: true  # Set to true to show more logs during the action
+          remove-old: true  # Remove previous pinned versions if true
