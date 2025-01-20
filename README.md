@@ -9,3 +9,5 @@ The generated torrent file references the folder partition1, and its metadata re
 
 
 Q3 - Copy the partition1 folder and then generate the associated torrent. What do you observe?
+
+The generated torrent for partition1_copy will have identical file data and structure but a different hash because the torrent metadata includes the path and potentially timestamp information.
